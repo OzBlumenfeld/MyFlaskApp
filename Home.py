@@ -1,5 +1,7 @@
 from flask import Flask,render_template,url_for, flash, redirect
 from forms import RegistrationForm, LoginForms
+from shows import TVShows
+
 
 app = Flask(__name__)
 
@@ -14,11 +16,14 @@ posts =[
     }
 ]
 
-
 @app.route('/')
 @app.route("/home")
 def hello():
     return render_template('Home.html',posts=posts,title='home page')
+
+@app.route("/shows")
+def tvShows():
+    return render_template('Movies.html',tv_show=TVShows.getShow(TVShows))
 
 
 @app.route('/about')
