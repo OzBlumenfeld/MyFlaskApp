@@ -1,15 +1,15 @@
 {% extends "Layout.html" %}
 {% block content%}
-    <!-- {% for show in shows %} -->
+    {% for tv_show in shows %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ tv_shows.original_name }}</a>
-              <small class="text-muted">{{ tv_shows.popularity }}</small>
+              <a class="mr-2" href="#">{{ tv_show.original_name }}</a>
+              <small class="text-muted">popularity: {{ tv_show.popularity }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ tv_shows.overview }}</a></h2>
-            <p class="article-content">{{ tv_shows.vote_average }}</p>
+            <h2><a class="article-title" href="#">overview: {{ tv_show.overview }}</a></h2>
+            <p class="article-content">Vote average: {{ tv_show.vote_average }}</p>
           </div>
         </article>
-    <!-- {% endfor %} -->
+    {% endfor %}
 {% endblock content %}

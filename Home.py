@@ -16,6 +16,10 @@ posts =[
     }
 ]
 
+# shows_list = [
+#     TVShows.getShow(TVShows)
+# ]
+
 @app.route('/')
 @app.route("/home")
 def hello():
@@ -23,7 +27,8 @@ def hello():
 
 @app.route("/shows")
 def tvShows():
-    return render_template('Movies.html',tv_show=TVShows.getShow(TVShows))
+    myShowes = TVShows.getShow(TVShows)
+    return render_template('Movies.html',shows=myShowes, title='TV-Shows page')
 
 
 @app.route('/about')
