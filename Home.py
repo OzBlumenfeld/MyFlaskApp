@@ -24,21 +24,24 @@ posts =[
     }
 ]
 
+
 @app.route('/')
 @app.route("/home")
 def hello():
-    return render_template('Home.html',posts=posts,title='home page')
+    return render_template('home.html',posts=posts,title='home page')
+
 
 @app.route("/shows")
 def tvShows():
     myShowes = TVShows.getShow(TVShows)
-    return render_template('Movies.html',shows=myShowes, title='TV-Shows page')
+    return render_template('shows.html',shows=myShowes, title='TV-Shows page')
 
-@app.route
+# @app.route
+
 
 @app.route('/about')
 def about():
-    return render_template('About.html', posts=posts, title='about page')
+    return render_template('about.html', posts=posts, title='about page')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -54,6 +57,7 @@ def register():
 def login():
     form = LoginForms()
     return render_template('login.html', title= 'Login', form=form)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
