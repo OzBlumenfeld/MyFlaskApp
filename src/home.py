@@ -1,8 +1,6 @@
 from flask import Flask,render_template,url_for, flash, redirect
-from forms import RegistrationForm, LoginForms
+from src.forms import RegistrationForm, LoginForms
 from shows import TVShows
-from TriviaConn import Connection
-
 
 app = Flask(__name__)
 
