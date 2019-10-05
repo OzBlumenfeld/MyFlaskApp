@@ -1,6 +1,7 @@
 from flask import Flask,render_template,url_for, flash, redirect
 from forms import RegistrationForm, LoginForms
 from shows import TVShows
+from TriviaConn import Connection
 
 
 app = Flask(__name__)
@@ -13,12 +14,15 @@ posts =[
         'title': 'Blog post #1',
         'content': 'Greetings fellows',
         'date_posted':'July 20, 2019'
+    },
+
+    {
+        'author': 'Oz Blumenfeld',
+        'title': 'Blog post #2',
+        'content': 'Added support for list of new recommended tv-shows, have fun.',
+        'date_posted':'July 25, 2019'
     }
 ]
-
-# shows_list = [
-#     TVShows.getShow(TVShows)
-# ]
 
 @app.route('/')
 @app.route("/home")
@@ -30,6 +34,7 @@ def tvShows():
     myShowes = TVShows.getShow(TVShows)
     return render_template('Movies.html',shows=myShowes, title='TV-Shows page')
 
+@app.route
 
 @app.route('/about')
 def about():
